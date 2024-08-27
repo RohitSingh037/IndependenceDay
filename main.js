@@ -18,7 +18,11 @@ setInterval(changecolor, 1000)
 function insertvalue(){
     const d1 = new Date()
     const d2 = new Date(d1.getFullYear(), 7, 15)
-    const diff = (d2 - d1)/1000
+    var diff = (d2 - d1)/1000
+    if(diff<0){
+        d2.setFullYear(d1.getFullYear()+1)
+        diff = (d2 - d1)/1000
+    }
     const month = Math.floor(diff/60/60/24/30)
     const day = Math.floor((diff/60/60/24)%30)
     const hour = Math.floor((diff/60/60)%24)
